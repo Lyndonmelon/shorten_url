@@ -1,0 +1,17 @@
+<div class="results">
+    <h3>Please copy this link:</h3>
+    <p id="generatedURL">{{origin}}/{{shorten_url}}</p>
+</div>
+<button class="copy" onclick="copy()">Copy</button>
+<script>
+    function copy() {
+        const URL = document.getElementById("generatedURL").innerHTML
+        navigator.clipboard.writeText(URL)
+            .then(() => {
+                alert("URL Copied!")
+            })
+            .catch(err => {
+                console.log('Something went wrong', err);
+            })
+    }
+</script>
