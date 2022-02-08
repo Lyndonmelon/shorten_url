@@ -29,7 +29,7 @@ app.post("/", (req, res) =>{
         .then(data => {
             if (!data) {
                 URL.create({ shorten_url: s_url, original_url: req.body.url })
-                res.render("result", { origin: req.headers.host, shorten_url: s_url })
+                    .then(res.render("result", { origin: req.headers.host, shorten_url: s_url }))
             } else {
                 res.render("result", { origin: req.headers.host, shorten_url: data.shorten_url })
             }
